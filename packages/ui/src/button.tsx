@@ -31,6 +31,7 @@ export const Button = ({ children, className, appName, onClick }: ButtonProps) =
         cursor: 'pointer'
       }}
     >
+      
       {children}
     </button>
   );
