@@ -1,13 +1,18 @@
 const express = require('express');
-const cors = require('cors');
 const app = express();
+const port = 3001;
 
-app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Smart-Draft AI Server is Running');
+app.post('/api/generate', (req, res) => {
+  const { prompt } = req.body;
+  // This simulates the AI logic
+  res.json({ 
+    result: `Drafting content for: ${prompt}`,
+    timestamp: new Date().toISOString() 
+  });
 });
 
-const PORT = 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(port, () => {
+  console.log(`Smart-Draft AI Server running at http://localhost:${port}`);
+});
